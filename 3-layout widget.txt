@@ -11,14 +11,43 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            ListTile(title: Text('Item 1')),
-            Image.asset('p1.png')
-            ,
-            ListTile(title: Text('Item 2')),
-            Image.asset('p2.png')
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Column(
+            children: [
+              Text('Product 1'),
+              SizedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: SizedBox(
+                      height: 150, 
+                      width: 150, 
+                     child: Image.asset('p1.png'),
+                    )
+                    
+                  ),
+                ),
+               
+                Text('Product 2'),
+              SizedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: SizedBox(
+                      height: 150, 
+                      width: 150, 
+                     child: Image.asset('p2.png'),
+                    )
+                    
+                  ),
+                ),
+               
+                
+              
+            ],
+            
+
+        )
+          
           
         )
    
