@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MainApp());
+}
+
+final _formKey = GlobalKey<FormState>();
+
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Enter your text'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Enter your text'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      print("Submitted");
+                      _formKey.currentState!.reset();
+                    }
+                  },
+                  child: const Text('Submit'),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
